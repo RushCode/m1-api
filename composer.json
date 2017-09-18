@@ -1,0 +1,34 @@
+{
+  "name": "leocata/m1-api",
+  "description": "PHP API M1",
+  "keywords": ["M1","php","curl","api","client", "sdk","rest","restful"],
+  "license": "MIT",
+  "type": "library",
+  "minimum-stability": "alpha",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Leo Cata",
+      "email": "leocata@yandex.ru"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "ext-pdo": "*",
+    "ext-curl": "*",
+    "hoa/websocket": "~3.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "6.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "leocata\\M1\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "leocata\\M1\\Tests\\": "tests/"
+    }
+  }
+}
