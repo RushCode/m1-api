@@ -34,8 +34,6 @@ class BodyConstructor
     /**
      * Builds up the form elements to be sent to Telegram
      *
-     * @TODO Move this to apart function
-     *
      * @param Methods $method
      * @return array
      */

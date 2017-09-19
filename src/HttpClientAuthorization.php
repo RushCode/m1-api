@@ -12,6 +12,7 @@ class HttpClientAuthorization
      * @var string
      */
     private $username;
+
     /**
      * @var string
      */

@@ -2,14 +2,15 @@
 
 namespace leocata\M1;
 
-use leocata\M1\Abstracts\Methods;
-use leocata\M1\InternalFunctionality\DummyLogger;
-use BodyConstructor;
 use Psr\Log\LoggerInterface;
 use React\Promise\PromiseInterface;
+use leocata\M1\Abstracts\Methods;
+use leocata\M1\InternalFunctionality\DummyLogger;
+use leocata\M1\InternalFunctionality\BodyConstructor;
 
 class Api
 {
+
     /**
      * @var RequestHandlerInterface
      */
@@ -35,7 +36,7 @@ class Api
      * Stores the clientAuthorization
      * @var string
      */
-    private $httpClientAuthorization;
+    private $clientAuthorization;
 
     /**
      * Stores the socket API URL
@@ -67,7 +68,7 @@ class Api
         LoggerInterface $logger = null
     ) {
 
-        $this->httpClientAuthorization = $httpClientAuthorization;
+        $this->clientAuthorization = $httpClientAuthorization;
 
         if ($logger === null) {
             $logger = new DummyLogger();

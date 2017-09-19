@@ -2,8 +2,8 @@
 
 namespace leocata\M1\InternalFunctionality;
 
-use Psr\Log\LoggerInterface;
-use Psr\Log\LogLevel;
+use \Psr\Log\LoggerInterface;
+use \Psr\Log\LogLevel;
 
 /**
  * Special class that will act as backup in case no logger is given

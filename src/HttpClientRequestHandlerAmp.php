@@ -3,6 +3,8 @@
 namespace leocata\M1;
 
 use leocata\M1\Exceptions\ClientException;
+use React\Promise\Deferred;
+use React\Promise\Promise;
 
 /**
  * @param Promise $promise
@@ -13,11 +15,7 @@ function reactAdapt(Promise $promise)
     $deferred = new Deferred();
 
     $promise->onResolve(function ($error = null, $result = null) use ($deferred) {
-        if ($error) {
-            $deferred->reject($error);
-        } else {
-            $deferred->resolve($result);
-        }
+        $error ? $deferred->reject($error) : $deferred->resolve($result);
     });
 
     return $deferred->promise();
