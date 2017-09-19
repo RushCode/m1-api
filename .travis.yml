@@ -1,3 +1,6 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=61db7678b47797ad0226a1d838256b00b884e5f4195adc78b1d2450450ee5aba
 language: php
 php:
   - 7.0
@@ -13,9 +16,11 @@ before_script:
   - if [ -z "$dependencies" ]; then composer install; fi;
   - if [ "$dependencies" = "lowest" ]; then composer update --prefer-lowest -n; fi;
   - if [ "$dependencies" = "highest" ]; then composer update -n; fi;
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 script:
   - stty cols 80; vendor/bin/phpunit -c phpunit.xml.dist --coverage-clover=coverage.clover
   - vendor/bin/phpcs src/ --standard=psr2 -sp
 after_script:
-  - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi

@@ -31,7 +31,7 @@
   },
   "autoload": {
     "psr-4": {
-      "leocata\\M1\\": "src/"
+      "leocata\\M1\\": "src"
     }
   },
   "autoload-dev": {
