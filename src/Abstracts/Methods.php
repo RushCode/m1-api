@@ -47,10 +47,8 @@ abstract class Methods implements MethodDefinitions
         return $this;
     }
 
-
     /**
-     * Exports the class to an array in order to send it to the Telegram servers without extra fields that we don't need
-     *
+     * Exports the class to an array in order to send it to servers without extra fields that we don't need
      * @return array
      * @throws MissingMandatoryField
      */

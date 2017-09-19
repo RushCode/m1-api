@@ -3,7 +3,6 @@
 namespace leocata\M1;
 
 use leocata\M1\Exceptions\ClientException;
-use leocata\M1\RequestHandlerInterface;
 use React\EventLoop\LoopInterface;
 use React\HttpClient\Client;
 use React\HttpClient\Request;

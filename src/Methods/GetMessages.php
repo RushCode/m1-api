@@ -45,7 +45,7 @@ class GetMessages
     public function getMandatoryFields(): array
     {
         return [
-            'sessionId'
+            'sessionid'
         ];
     }
 }

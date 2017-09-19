@@ -14,7 +14,7 @@ class SendMessage extends Methods
      * Session identifier.
      * @var string
      */
-    public $sessionId;
+    public $sessionid;
 
     /**
      * List of the message recipients IDs.

@@ -3,37 +3,38 @@
 namespace leocata\M1\InternalFunctionality;
 
 use leocata\M1\Abstracts\Methods;
-use leocata\M1\InternalFunctionality\DummyLogger;
 use Psr\Log\LoggerInterface;
 
+/**
+ * Class BodyConstructor
+ * @package leocata\M1\InternalFunctionality
+ */
 class BodyConstructor
 {
-    /**
-     * With this flag we'll know what type of request to send to M1
-     *
-     * 'application/x-www-form-urlencoded' is the "normal" one, which is simpler and quicker.
-     * 'multipart/form-data' should be used only when you upload documents, photos, etc.
-     *
-     * @var string
-     */
-    public $formType = 'application/json';
 
     /**
      * @var LoggerInterface
      */
     protected $logger;
 
-    public function __construct(LoggerInterface $logger = null)
+    /**
+     * @var array
+     */
+    private $clientAuthorization;
+
+    /**
+     * BodyConstructor constructor.
+     * @param LoggerInterface $logger
+     * @param array $clientAuthorization
+     */
+    public function __construct(LoggerInterface $logger, array $clientAuthorization)
     {
-        if ($logger === null) {
-            $logger = new DummyLogger();
-        }
         $this->logger = $logger;
+        $this->clientAuthorization = $clientAuthorization;
     }
 
     /**
-     * Builds up the form elements to be sent to Telegram
-     *
+     * Builds up the method to be sent to http-server
      * @param Methods $method
      * @return array
      */
@@ -43,10 +44,9 @@ class BodyConstructor
 
         return [
             'headers' => [
-                'Content-Type' => $this->formType,
+                'Content-Type' => 'application/json',
                 'Content-Length' => strlen($body),
-                'User-Agent' => 'M1 Bot API'
-            ],
+            ] + $this->clientAuthorization,
             'body' => $body
         ];
     }
