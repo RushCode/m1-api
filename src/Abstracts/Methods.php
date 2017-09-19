@@ -1,10 +1,12 @@
 <?php
 
-namespace Leocata\M1\Abstracts;
+namespace leocata\M1\Abstracts;
 
-use Leocata\M1\Interfaces\MethodDefinitions;
-use Leocata\M1\Response;
-use Leocata\M1\Types\Message;
+use leocata\M1\Exceptions\MissingMandatoryField;
+use leocata\M1\Interfaces\MethodDefinitions;
+use leocata\M1\Response;
+use leocata\M1\Types\Message;
+use Psr\Log\LoggerInterface;
 
 abstract class Methods implements MethodDefinitions
 {
@@ -20,13 +22,31 @@ abstract class Methods implements MethodDefinitions
      * just check out the rest of the code. A good place to start is GetUserProfilePhotos or LeaveChat
      *
      * @param Response|Response $data
+     * @param LoggerInterface $logger
      * @return Types
      * @internal param LoggerInterface $logger
      */
-    public static function bindToObject(Response $data): Types
+    public static function bindToObject(Response $data, LoggerInterface $logger): Types
     {
-        return new Message($data->getResult());
+        return new Message($data->getResult(), $logger);
     }
+
+    /**
+     * Before making the actual request this method will be called
+     *
+     * It must be used to json_encode stuff, or do other changes in the internal class representation _before_ sending
+     * it to the Telegram servers
+     *
+     * @return Methods
+     */
+    public function performSpecialConditions(): Methods
+    {
+        if (!empty($this->reply_markup)) {
+            $this->reply_markup = json_encode($this->formatReplyMarkup($this->reply_markup));
+        }
+        return $this;
+    }
+
 
     /**
      * Exports the class to an array in order to send it to the Telegram servers without extra fields that we don't need

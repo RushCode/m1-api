@@ -1,9 +1,9 @@
 <?php
 
-namespace Leocata\M1;
+namespace leocata\M1;
 
-use Leocata\M1\Exceptions\ClientException;
-use Leocata\M1\Types\Custom\UnsuccessfulRequest;
+use leocata\M1\Exceptions\ClientException;
+use leocata\M1\Types\Custom\UnsuccessfulRequest;
 
 class Response
 {
@@ -36,7 +36,7 @@ class Response
      *
      * @param string $rawData
      * @return Response
-     * @throws \Leocata\M1\Exceptions\ClientException
+     * @throws \leocata\M1\Exceptions\ClientException
      */
     public function fillRawData(string $rawData): Response
     {

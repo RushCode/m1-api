@@ -1,8 +1,8 @@
 <?php
 
-namespace Leocata\M1\Abstracts;
+namespace leocata\M1\Abstracts;
 
-use Leocata\M1\Types\Custom\ResultArray;
+use leocata\M1\Types\Custom\ResultArray;
 
 abstract class Types
 {

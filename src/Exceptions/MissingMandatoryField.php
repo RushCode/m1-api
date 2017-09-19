@@ -1,7 +1,6 @@
 <?php
 
-namespace Leocata\M1\Abstracts;
-
+namespace leocata\M1\Exceptions;
 
 class MissingMandatoryField extends \RuntimeException
 {

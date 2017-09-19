@@ -1,6 +1,6 @@
 <?php
 
-namespace Leocata\M1\Types\Inline\Keyboard;
+namespace leocata\M1\Types\Inline\Keyboard;
 
 class Markup
 {

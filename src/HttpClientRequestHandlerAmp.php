@@ -1,8 +1,8 @@
 <?php
 
-namespace Leocata\M1;
+namespace leocata\M1;
 
-use Leocata\M1\Exceptions\ClientException;
+use leocata\M1\Exceptions\ClientException;
 
 /**
  * @param Promise $promise

@@ -1,6 +1,6 @@
 <?php
 
-namespace Leocata\M1;
+namespace leocata\M1;
 
 interface RequestHandlerInterface
 {

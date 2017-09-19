@@ -1,6 +1,6 @@
 <?php
 
-namespace Leocata\M1\Types\Custom;
+namespace leocata\M1\Types\Custom;
 
 /**
  * Mainly used if we have no clue what type of (new?) object the API is returning us

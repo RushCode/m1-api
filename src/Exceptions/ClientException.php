@@ -1,9 +1,9 @@
 <?php
 
-namespace Leocata\M1\Exceptions;
+namespace leocata\M1\Exceptions;
 
 use Throwable;
-use Leocata\M1\Types\Custom\UnsuccessfulRequest;
+use leocata\M1\Types\Custom\UnsuccessfulRequest;
 
 class ClientException extends \RuntimeException
 {

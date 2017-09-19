@@ -1,8 +1,8 @@
 <?php
 
-namespace Leocata\M1\Types\Custom;
+namespace leocata\M1\Types\Custom;
 
-use Leocata\M1\Abstracts\Types;
+use leocata\M1\Abstracts\Types;
 
 class UnsuccessfulRequest extends Types
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Leocata\M1\Methods;
+namespace leocata\M1\Methods;
 
 /**
  * Class GetMessages
- * @package Leocata\M1\Methods
+ * @package leocata\M1\Methods
  */
 class GetMessages
 {

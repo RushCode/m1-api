@@ -1,18 +1,41 @@
 <?php
 
-namespace Leocata\M1;
+namespace leocata\M1;
 
-use Http\Message\Authentication\BasicAuth;
-use Psr\Http\Message\RequestInterface;
-
+/**
+ * Class HttpClientAuthorization
+ * @package leocata\M1
+ */
 class HttpClientAuthorization
 {
+    /**
+     * @var string
+     */
+    private $username;
+    /**
+     * @var string
+     */
+    private $password;
 
-    public function __construct($username, $password, RequestInterface $request)
+    /**
+     * HttpClientAuthorization constructor.
+     * @param string $username
+     * @param string $password
+     */
+    public function __construct(string $username, string $password)
     {
-        $auth = new BasicAuth($username, $password);
-        $auth->authenticate($request);
+        $this->username = $username;
+        $this->password = $password;
+    }
 
-        return
+    /**
+     * The authorization header will be generated and added as a custom header
+     * @return array
+     */
+    public function getBasicAuth(): array
+    {
+        return [
+            'Authorization' => 'Basic ' . base64_encode($this->username . ':' . $this->password),
+        ];
     }
 }

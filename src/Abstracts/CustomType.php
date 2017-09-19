@@ -1,6 +1,6 @@
 <?php
 
-namespace Leocata\M1\Abstracts;
+namespace leocata\M1\Abstracts;
 
 abstract class CustomType extends Types
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Leocata\M1\Methods;
+namespace leocata\M1\Methods;
 
-use Leocata\M1\Abstracts\Methods;
+use leocata\M1\Abstracts\Methods;
 
 /**
  * Class SendMessage
- * @package Leocata\M1\Methods
+ * @package leocata\M1\Methods
  */
 class SendMessage extends Methods
 {

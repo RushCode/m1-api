@@ -1,9 +1,14 @@
 <?php
 
-namespace Leocata\M1;
+namespace leocata\M1;
 
-use Leocata\M1\Exceptions\ClientException;
-use Leocata\M1\RequestHandlerInterface;
+use leocata\M1\Exceptions\ClientException;
+use leocata\M1\RequestHandlerInterface;
+use React\EventLoop\LoopInterface;
+use React\HttpClient\Client;
+use React\HttpClient\Request;
+use React\Promise\Deferred;
+use React\Promise\PromiseInterface;
 
 class HttpClientRequestHandler implements RequestHandlerInterface
 {
@@ -60,10 +65,9 @@ class HttpClientRequestHandler implements RequestHandlerInterface
 
             $response->on('end', function () use (&$receivedData, $deferred, $response) {
                 try {
-                    $endResponse = new TelegramResponse($receivedData, $response->getHeaders());
+                    $endResponse = new Response($receivedData, $response->getHeaders());
                     $deferred->resolve($endResponse);
                 } catch (\Exception $e) {
-                    // Capture any exceptions thrown from TelegramResponse and reject the response
                     $deferred->reject($e);
                 }
             });

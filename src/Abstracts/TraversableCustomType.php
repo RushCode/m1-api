@@ -1,8 +1,8 @@
 <?php
 
-namespace Leocata\M1\Types\Custom;
+namespace leocata\M1\Types\Custom;
 
-use Leocata\M1\Abstracts\CustomType;
+use leocata\M1\Abstracts\CustomType;
 
 abstract class TraversableCustomType extends CustomType implements \IteratorAggregate
 {
