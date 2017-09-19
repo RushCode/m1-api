@@ -1,7 +1,8 @@
 <?php
 
+namespace leocata\M1\InternalFunctionality;
+
 use leocata\M1\Abstracts\Methods;
-use leocata\M1\HttpClientAuthorization;
 use leocata\M1\InternalFunctionality\DummyLogger;
 use Psr\Log\LoggerInterface;
 
@@ -50,10 +51,5 @@ class BodyConstructor
             ],
             'body' => $body
         ];
-    }
-
-    public function appendOptions()
-    {
-        
     }
 }

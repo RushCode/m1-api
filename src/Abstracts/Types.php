@@ -46,8 +46,8 @@ abstract class Types
     {
         if (!isset($this->$key)) {
             $this->logger->error(sprintf(
-                'The key "%s" does not exist in the class! Maybe a recent Telegram Bot API update? In any way, please ' .
-                'submit an issue (bug report) at %s with this complete log line',
+                'The key "%s" does not exist in the class! Maybe a recent Telegram Bot API update? In any way, ' .
+                'please submit an issue (bug report) at %s with this complete log line',
                 $key,
                 'https://github.com/unreal4u/telegram-api/issues'
             ), [
