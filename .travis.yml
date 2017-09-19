@@ -23,4 +23,4 @@ script:
   - stty cols 80; vendor/bin/phpunit -c phpunit.xml.dist --coverage-clover=coverage.clover
   - vendor/bin/phpcs src/ --standard=psr2 -sp
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi;
