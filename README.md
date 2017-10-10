@@ -18,8 +18,58 @@ Add the following to your composer.json:
 ```
 
 ## General usage
-### Basic usage example:
 
-```php
+### Send request to Server
 
 ```
+$connect = new Api();
+$connect->performApiRequest($method);
+```
+
+## Api methods
+
+### Session
+
+#### getSessions
+#### createSession
+#### updateSession
+#### closeSession
+
+### Message
+
+#### getMessages
+#### sendMessage
+#### message
+#### deleteMessage
+#### messageDeleted
+#### messageDelivered
+#### delivery
+#### messageTyped
+
+### State
+
+#### Set state
+
+```
+$state = new SetState();
+$state->termid = 'Android 4.2.2';
+$state->online();
+```
+
+### Contact
+
+#### findContact
+#### inviteContact
+#### contactRequested
+#### contactAccept
+#### contactAccepted
+#### contactReject
+#### contactRejected
+#### deleteContact
+#### updateContact
+#### getContacts
+
+### UserInfo
+
+#### getUserInfo
+#### setUserInfo

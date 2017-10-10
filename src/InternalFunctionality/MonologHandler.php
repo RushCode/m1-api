@@ -49,7 +49,7 @@ class MonologHandler extends AbstractProcessingHandler
         $sendMessage->content = $record['formatted'];
         $sendMessage->sessionid = $this->sessionid;
 
-        $this->mobApi->performApiRequest($sendMessage);
+        $this->mobApi->sendApiRequest($sendMessage);
         return $this;
     }
 }

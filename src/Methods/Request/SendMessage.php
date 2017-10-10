@@ -1,14 +1,15 @@
 <?php
 
-namespace leocata\M1\Methods;
+namespace leocata\M1\Methods\Request;
 
-use leocata\M1\Abstracts\Methods;
+use leocata\M1\Methods\MessageMethods;
 
 /**
  * Class SendMessage
+ * Sending message from the client to the server
  * @package leocata\M1\Methods
  */
-class SendMessage extends Methods
+class SendMessage extends MessageMethods
 {
     /**
      * Session identifier.
@@ -20,7 +21,7 @@ class SendMessage extends Methods
      * List of the message recipients IDs.
      * @var array
      */
-    public $dest = [];
+    public $dest;
 
     /**
      * Message content.

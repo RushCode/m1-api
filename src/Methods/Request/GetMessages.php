@@ -3,17 +3,18 @@
 namespace leocata\M1\Methods;
 
 /**
+ * Get list of messages
  * Class GetMessages
  * @package leocata\M1\Methods
  */
-class GetMessages
+class GetMessages extends MessageMethods
 {
 
     /**
      * Session identifier.
      * @var string
      */
-    public $sessionId;
+    public $sessionid;
 
     /**
      * Time period.
@@ -44,8 +45,6 @@ class GetMessages
 
     public function getMandatoryFields(): array
     {
-        return [
-            'sessionid'
-        ];
+        return [];
     }
 }

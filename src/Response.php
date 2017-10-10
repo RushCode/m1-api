@@ -3,6 +3,7 @@
 namespace leocata\M1;
 
 use leocata\M1\Exceptions\ClientException;
+use leocata\M1\Exceptions\InvalidResultType;
 use leocata\M1\Types\Custom\UnsuccessfulRequest;
 
 class Response

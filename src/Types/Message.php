@@ -2,9 +2,7 @@
 
 namespace leocata\M1\Types;
 
-use leocata\M1\Abstracts\Types;
-
-class Message extends Types
+class Message
 {
 
     /**
@@ -75,4 +73,10 @@ class Message extends Types
      * @var integer
      */
     public $code;
+
+    /**
+     * Message lifetime in seconds (for the self-removed messages)
+     * @var integer
+     */
+    public $lifetime;
 }
