@@ -1,13 +1,16 @@
 <?php
 
-namespace leocata\M1\Methods;
+namespace leocata\M1\Methods\Request;
+
+use leocata\M1\Interfaces\MethodRequest;
+use leocata\M1\Methods\MessageMethods;
 
 /**
  * Get list of messages
  * Class GetMessages
  * @package leocata\M1\Methods
  */
-class GetMessages extends MessageMethods
+class GetMessages extends MessageMethods implements MethodRequest
 {
 
     /**
@@ -43,8 +46,24 @@ class GetMessages extends MessageMethods
      */
     public $limit;
 
+    /**
+     * GetMessages constructor.
+     */
+    public function __construct()
+    {
+        if ($this->period && $this->since === null) {
+            $this->since = strtotime('-1 hour');
+        }
+        parent::__construct();
+    }
+
     public function getMandatoryFields(): array
     {
         return [];
+    }
+
+    public function result()
+    {
+
     }
 }

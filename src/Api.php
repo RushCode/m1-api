@@ -14,8 +14,10 @@ class Api
 
     const RESPONSE_METHOD_ALIAS = 'Response';
     const REQUEST_METHOD_ALIAS = 'Request';
+
     private $method;
     private $methodType;
+    private $params;
 
     /**
      * @param $data
@@ -53,7 +55,7 @@ class Api
     {
         $this->methodType = self::REQUEST_METHOD_ALIAS;
         $this->method = $data;
-        $this->method->export();
+        $this->params = $data->export();
 
         return $this->parseData(['method' => $this->method->getMethodName(), 'params' => $this->method]);
     }

@@ -8,7 +8,7 @@ class StateTest extends TestCase
 {
     /**
      * @expectedException \leocata\M1\Exceptions\MissingMandatoryField
-     * @expectedExceptionMessage userid
+     * @expectedExceptionMessage state
      */
 
     public function testMissingMandatoryExportField()

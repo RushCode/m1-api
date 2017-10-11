@@ -4,6 +4,7 @@ namespace leocata\M1\Abstracts;
 
 use leocata\M1\Exceptions\MissingMandatoryField;
 use leocata\M1\Interfaces\MethodDefinitions;
+use ReflectionClass;
 
 /**
  * Class Methods
@@ -11,55 +12,60 @@ use leocata\M1\Interfaces\MethodDefinitions;
  */
 abstract class Methods implements MethodDefinitions
 {
+    private $mandatoryFields;
+
+    public function __construct()
+    {
+        $this->mandatoryFields = $this->getMandatoryFields();
+    }
 
     /**
      * Import data from json string
-     *
      * @param $data \stdClass
-     * @return bool
+     * @return Methods
      */
     final public function import(\stdClass $data)
     {
         foreach ($data as $key => $value) {
-            $this->$key = $value;
+            $this->load($key, $value);
         }
 
-        return $this->isValid();
+        return $this->validate();
     }
 
-    /**
-     * Validate properties
-     * @return bool
-     */
-    final protected function isValid(): bool
+    private function load($key, $value)
     {
-        $fields = $this->getMandatoryFields();
-        foreach ($this as $key => $value) {
-            if ($this->$key === null && in_array($key, $fields, true)) {
+        if ($value !== null) {
+            $this->$key = $value;
+        } else {
+            unset($this->$key);
+        }
+    }
+
+    private function validate()
+    {
+        foreach ($this->mandatoryFields as $field) {
+            if (!isset($this->$field)) {
                 throw new MissingMandatoryField(sprintf(
                     'The field "%s" is mandatory and empty, please correct',
-                    $key
+                    $field
                 ));
             }
         }
-
-        return true;
+        return $this;
     }
 
     /**
      * Export data
      * @return bool|Methods
-     * @internal param Methods $data
-     * @internal param Methods $method
      */
     final public function export()
     {
-
         foreach ($this as $key => $value) {
-            $this->$key = $value;
+            $this->load($key, $value);
         }
 
-        return $this->isValid() ? $this : false;
+        return $this->validate();
     }
 
     /**
@@ -68,6 +74,6 @@ abstract class Methods implements MethodDefinitions
      */
     final public function getMethodName(): string
     {
-        return lcfirst((new \ReflectionClass($this))->getShortName());
+        return lcfirst((new ReflectionClass($this))->getShortName());
     }
 }

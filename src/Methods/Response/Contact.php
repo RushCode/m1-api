@@ -17,10 +17,6 @@ class Contact extends Methods
     public $updateContact;
     public $getContacts;
 
-    public function getContacts()
-    {
-        return new GetContacts();
-    }
     public function getMandatoryFields(): array
     {
 
