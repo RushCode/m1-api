@@ -19,6 +19,6 @@ class Contact extends Methods
 
     public function getMandatoryFields(): array
     {
-
+        return [];
     }
 }

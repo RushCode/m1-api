@@ -64,6 +64,6 @@ class GetMessages extends MessageMethods implements MethodRequest
 
     public function result()
     {
-
+        return [];
     }
 }
