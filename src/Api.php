@@ -21,7 +21,7 @@ class Api
 
     /**
      * @param $data
-     * @return string
+     * @return Methods
      */
     public function getApiResponse(string $data)
     {
@@ -70,10 +70,9 @@ class Api
 
     /**
      * @param $method
-     * @return Methods
-     * @internal param string $alias
+     * @return object
      */
-    public function setMethod($method): Methods
+    public function setMethod($method)
     {
         class_alias('\leocata\M1\Methods\\' . $this->methodType . '\\' . $method, $method);
 
