@@ -3,7 +3,6 @@
 namespace leocata\M1;
 
 use leocata\M1\Abstracts\CallbackMethods;
-use leocata\M1\Abstracts\Methods;
 use leocata\M1\Abstracts\RequestMethods;
 use leocata\M1\Exceptions\MethodNotFound;
 use leocata\M1\Exceptions\MissingMandatoryField;

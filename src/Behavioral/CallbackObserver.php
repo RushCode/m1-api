@@ -9,16 +9,10 @@ class CallbackObserver implements \SplObserver
 
     public static function doCallback($name, array $arg = null)
     {
-        //В цикле вызов переданных функций обратного вызова
         foreach (self::$callbacks as $callback) {
-            /*
-             * Проверяем существование функций повешенных на событие
-             * Ключ массива ($callback) должен совпадать с названием события ($name)
-             */
             if (array_key_exists($name, $callback)) {
-                //Проверка возможности вызова анонимной функции
                 if (!is_callable($callback[$name])) {
-                    throw new \Exception("Функция обратного вызова - невызываемая ! ");
+                    throw new \BadFunctionCallException();
                 }
                 $result = call_user_func($callback[$name], $arg);
                 if (isset($result)) {
