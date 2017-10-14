@@ -1,0 +1,17 @@
+{
+  "method": "message",
+  "params": {
+    "id": "4586734956793456",
+    "sessionid": "g85yjprdiyjh5",
+    "orig": "123123",
+    "dest": [
+      "4645694586"
+    ],
+    "content": "string",
+    "type": "1",
+    "status": "1",
+    "time": 0,
+    "lifetime": 0,
+    "code": 0
+  }
+}

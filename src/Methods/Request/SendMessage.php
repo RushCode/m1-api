@@ -2,14 +2,14 @@
 
 namespace leocata\M1\Methods\Request;
 
-use leocata\M1\Methods\MessageMethods;
+use leocata\M1\Abstracts\RequestMethods;
 
 /**
  * Class SendMessage
  * Sending message from the client to the server
  * @package leocata\M1\Methods
  */
-class SendMessage extends MessageMethods
+class SendMessage extends RequestMethods
 {
     /**
      * Session identifier.

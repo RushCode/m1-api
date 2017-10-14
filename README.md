@@ -1,5 +1,5 @@
 # M1 API
-[![Build Status](https://travis-ci.org/RushCode/m1-api.svg?branch=master)](https://travis-ci.org/RushCode/m1-api) [![Code Climate](https://codeclimate.com/github/RushCode/m1-api/badges/gpa.svg)](https://codeclimate.com/github/RushCode/m1-api) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/RushCode/m1-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/RushCode/m1-api/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/RushCode/m1-api/badges/build.png?b=master)](https://scrutinizer-ci.com/g/RushCode/m1-api/build-status/master)
+[![Build Status](https://travis-ci.org/RushCode/m1-api.svg?branch=master)](https://travis-ci.org/RushCode/m1-api) [![Code Climate](https://codeclimate.com/github/RushCode/m1-api/badges/gpa.svg)](https://codeclimate.com/github/RushCode/m1-api) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/RushCode/m1-api/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/RushCode/m1-api/?branch=master) [![Code Coverage](https://scrutinizer-ci.com/g/RushCode/m1-api/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/RushCode/m1-api/?branch=master)
 
 ### About this class
 
@@ -12,7 +12,7 @@ Add the following to your composer.json:
 ```json
 {
   "require": {
-    "leocata/m1-api": "~1.0"
+    "leocata/m1-api": "^1.0"
   }
 }
 ```
@@ -23,7 +23,7 @@ Add the following to your composer.json:
 
 ```
 $connect = new Api();
-$connect->performApiRequest($method);
+$connect->sendApiRequest($method);
 ```
 
 ## Api methods
@@ -51,9 +51,9 @@ $connect->performApiRequest($method);
 #### Set state
 
 ```
-$state = new SetState();
-$state->termid = 'Android 4.2.2';
+$state = new \leocata\M1\Methods\Request\SetState();
 $state->online();
+(new Api())->sendApiRequest($state);
 ```
 
 ### Contact

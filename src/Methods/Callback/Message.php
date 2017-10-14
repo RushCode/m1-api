@@ -1,10 +1,11 @@
 <?php
 
-namespace leocata\M1\Types;
+namespace leocata\M1\Methods\Callback;
 
-class Message
+use leocata\M1\Abstracts\CallbackMethods;
+
+class Message extends CallbackMethods
 {
-
     /**
      * Session identifier
      * @var string

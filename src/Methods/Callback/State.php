@@ -1,15 +1,15 @@
 <?php
 
-namespace leocata\M1\Methods\Response;
+namespace leocata\M1\Methods\Callback;
 
-use leocata\M1\Methods\StateMethods;
+use leocata\M1\Abstracts\CallbackMethods;
 
 /**
  * Class State
  * Notification of user’s status modification
  * @package leocata\M1\Methods
  */
-class State extends StateMethods
+class State extends CallbackMethods
 {
     /**
      * User identifier.
@@ -19,14 +19,7 @@ class State extends StateMethods
      */
     public $userid;
 
-    /**
-     *
-     * @return array
-     */
-    public function getMandatoryFields(): array
-    {
-        $fields = array_merge(parent::getMandatoryFields(), ['userid']);
+    public $state;
 
-        return $fields;
-    }
+    public $note;
 }

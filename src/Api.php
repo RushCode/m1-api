@@ -2,8 +2,13 @@
 
 namespace leocata\M1;
 
+use leocata\M1\Abstracts\CallbackMethods;
 use leocata\M1\Abstracts\Methods;
-use leocata\M1\Exceptions\JsonParserException;
+use leocata\M1\Abstracts\RequestMethods;
+use leocata\M1\Exceptions\MethodNotFound;
+use leocata\M1\Exceptions\MissingMandatoryField;
+use leocata\M1\InternalFunctionality\DummyLogger;
+use Psr\Log\LoggerInterface;
 
 /**
  * Class Api
@@ -12,70 +17,84 @@ use leocata\M1\Exceptions\JsonParserException;
 class Api
 {
 
-    const RESPONSE_METHOD_ALIAS = 'Response';
-    const REQUEST_METHOD_ALIAS = 'Request';
-
-    private $method;
-    private $methodType;
-    private $params;
+    protected $logger;
+    private static $callbacks = [];
+    private $client;
+    private $auth;
 
     /**
-     * @param $data
-     * @return Methods
+     * @param LoggerInterface $logger
+     * @param HttpClientAuthorization $auth
      */
-    public function getApiResponse(string $data)
+    public function __construct(HttpClientAuthorization $auth, LoggerInterface $logger = null)
     {
-        $this->methodType = self::RESPONSE_METHOD_ALIAS;
-        $data = $this->parseData($data);
-        $this->method = $this->setMethod($data->method);
-        $this->method->import($data->params);
+        if ($logger === null) {
+            $logger = new DummyLogger();
+        }
+        $this->logger = $logger;
 
-        return $this->method;
+        $this->client = new HttpClient($auth);
+        $this->auth = $auth;
     }
 
-    private function parseData($data)
+    /**
+     * @param $name
+     * @param \Closure $func
+     * @throws \BadFunctionCallException
+     */
+    public static function doCallback($name, \Closure $func)
     {
-        $data = $this->methodType === self::REQUEST_METHOD_ALIAS ? json_encode($data) : json_decode($data);
+        if (array_key_exists($name, self::$callbacks)) {
+            if (!is_callable($func)) {
+                throw new \BadFunctionCallException();
+            }
+            call_user_func($func);
+        }
+    }
 
-        if ($data === null) {
-            throw new JsonParserException(sprintf(
-                'JSON decode error: "%s"',
-                json_last_error_msg()
+    /**
+     * @param string $data
+     * @return bool|CallbackMethods
+     * @throws MethodNotFound | MissingMandatoryField
+     */
+    public function getApiCallbackMethod(string $data)
+    {
+        $data = \GuzzleHttp\json_decode($data);
+        if (empty($data->method)) {
+            return false;
+        }
+
+        $class = '\leocata\M1\Methods\Callback\\' . ucfirst($data->method);
+
+        if (!class_exists($class)) {
+            throw new MethodNotFound(sprintf(
+                'The method "%s" not found, please correct',
+                $data->method
             ));
         }
 
-        return $data;
+        class_alias($class, $data->method);
+        /** @var \leocata\M1\Abstracts\CallbackMethods $method */
+        $method = new $data->method();
+        $method->import($data->params ?? new \stdClass());
+        self::$callbacks += ['after' . $method->getMethodName() => $method];
+
+        return $method;
     }
 
     /**
-     * @param $data Methods
-     * @return string
+     * Performs the request to the Api servers
+     *
+     * @param RequestMethods $method
+     * @return RequestMethods
      */
-    public function sendApiRequest(Methods $data): string
+    public function sendApiRequest(RequestMethods $method)
     {
-        $this->methodType = self::REQUEST_METHOD_ALIAS;
-        $this->method = $data;
-        $this->params = $data->export();
+        $response = $this->client->getResponseContent($method->getRequestString());
+        if(!empty($response)) {
+            $method->setResult($response);
+        }
 
-        return $this->parseData(['method' => $this->method->getMethodName(), 'params' => $this->method]);
-    }
-
-    /**
-     * @return Methods
-     */
-    public function getMethod(): Methods
-    {
-        return $this->method;
-    }
-
-    /**
-     * @param $method
-     * @return object
-     */
-    public function setMethod($method)
-    {
-        class_alias('\leocata\M1\Methods\\' . $this->methodType . '\\' . $method, $method);
-
-        return new $method();
+        return $method;
     }
 }

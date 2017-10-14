@@ -23,7 +23,8 @@
     "ratchet/pawl": "^0.2",
     "psr/log": "^1.0",
     "react/http-client": "^0.5",
-    "react/promise": "^2.5"
+    "react/promise": "^2.5",
+    "guzzlehttp/guzzle": "6.3.*"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.0",

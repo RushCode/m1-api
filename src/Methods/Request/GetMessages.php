@@ -2,16 +2,40 @@
 
 namespace leocata\M1\Methods\Request;
 
-use leocata\M1\Interfaces\MethodRequest;
-use leocata\M1\Methods\MessageMethods;
+use leocata\M1\Abstracts\RequestMethods;
 
 /**
  * Get list of messages
  * Class GetMessages
  * @package leocata\M1\Methods
  */
-class GetMessages extends MessageMethods implements MethodRequest
+class GetMessages extends RequestMethods
 {
+
+    /**
+     * Query of sessions with activity within specified time period
+     */
+    const PERIOD_ALL_TIME = 0;
+    const PERIOD_LAST_MONTH = 1;
+    const PERIOD_LAST_WEEK = 2;
+    const PERIOD_LAST_DAY = 3;
+
+    /**
+     * Message type
+     */
+    const MESSAGE_TEXT = 0;
+    const MESSAGE_FILE_LINK = 2;
+    const MESSAGE_ADD_CONFERENCE = 3;
+    const MESSAGE_DELETE_CONFERENCE = 4;
+    const MESSAGE_CONTACT_LINK = 10;
+
+    /**
+     * Message status
+     */
+    const MESSAGE_STATUS_INCOMING_NEW = 1;
+    const MESSAGE_STATUS_INCOMING_OUTCOMING = 2;
+    const MESSAGE_STATUS_OUTCOMING_UNREAD = 3;
+    const MESSAGE_STATUS_OUTCOMING_OUTCOMING = 4;
 
     /**
      * Session identifier.
@@ -52,9 +76,8 @@ class GetMessages extends MessageMethods implements MethodRequest
     public function __construct()
     {
         if ($this->period && $this->since === null) {
-            $this->since = strtotime('-1 hour');
+            $this->since = strtotime('-24 hour');
         }
-        parent::__construct();
     }
 
     public function getMandatoryFields(): array
@@ -62,8 +85,4 @@ class GetMessages extends MessageMethods implements MethodRequest
         return [];
     }
 
-    public function result()
-    {
-        return [];
-    }
 }

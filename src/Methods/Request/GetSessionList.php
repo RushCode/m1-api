@@ -2,14 +2,14 @@
 
 namespace leocata\M1\Methods;
 
-use leocata\M1\Abstracts\Methods;
+use leocata\M1\Abstracts\RequestMethods;
 
 /**
  * Class GetSessionList
  * @package leocata\M1\Methods
  */
 
-class GetSessionList extends Methods
+class GetSessionList extends RequestMethods
 {
 
     /**

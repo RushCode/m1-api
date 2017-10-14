@@ -14,8 +14,20 @@ class SendMessageTest extends TestCase
 
     public function testMissingMandatoryExportField()
     {
-        $setState = new SendMessage();
-        $setState->export();
+        $sendMessage = new SendMessage();
+        $sendMessage->export();
+    }
+
+    /**
+     * @expectedException \leocata\M1\Exceptions\MissingMandatoryField
+     * @expectedExceptionMessage dest
+     */
+
+    public function testMissingMandatoryExportFieldDest()
+    {
+        $sendMessage = new SendMessage();
+        $sendMessage->sessionid = 123123;
+        $sendMessage->export();
     }
 
 }
