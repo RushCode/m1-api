@@ -2,11 +2,34 @@
 
 namespace leocata\M1\tests\Methods\Request;
 
+use leocata\M1\HttpClientAuthorization;
 use leocata\M1\Methods\Request\SendMessage;
+use leocata\M1\Tests\Mock\MockApi;
 use PHPUnit\Framework\TestCase;
 
 class SendMessageTest extends TestCase
 {
+    /**
+     * @var MockApi
+     */
+    private $apiConn;
+
+    /**
+     * Prepares the environment before running a test.
+     */
+    protected function setUp()
+    {
+        parent::setUp();
+        $this->apiConn = new MockApi(new HttpClientAuthorization('', ''));
+    }
+    /**
+     * Cleans up the environment after running a test.
+     */
+    protected function tearDown()
+    {
+        $this->apiConn = null;
+        parent::tearDown();
+    }
     /**
      * @expectedException \leocata\M1\Exceptions\MissingMandatoryField
      * @expectedExceptionMessage sessionid
@@ -17,17 +40,4 @@ class SendMessageTest extends TestCase
         $sendMessage = new SendMessage();
         $sendMessage->export();
     }
-
-    /**
-     * @expectedException \leocata\M1\Exceptions\MissingMandatoryField
-     * @expectedExceptionMessage dest
-     */
-
-    public function testMissingMandatoryExportFieldDest()
-    {
-        $sendMessage = new SendMessage();
-        $sendMessage->sessionid = 123123;
-        $sendMessage->export();
-    }
-
 }

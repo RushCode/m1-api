@@ -23,7 +23,7 @@ class HttpClient
 
     /**
      * @param $request
-     * @return null|\Psr\Http\Message\ResponseInterface
+     * @return mixed|null
      */
     public function getResponseContent($request)
     {

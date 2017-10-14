@@ -16,10 +16,9 @@ use Psr\Log\LoggerInterface;
 class Api
 {
 
-    protected $logger;
     private static $callbacks = [];
+    protected $logger;
     private $client;
-    private $auth;
 
     /**
      * @param LoggerInterface $logger
@@ -33,7 +32,6 @@ class Api
         $this->logger = $logger;
 
         $this->client = new HttpClient($auth);
-        $this->auth = $auth;
     }
 
     /**
@@ -90,7 +88,7 @@ class Api
     public function sendApiRequest(RequestMethods $method)
     {
         $response = $this->client->getResponseContent($method->getRequestString());
-        if(!empty($response)) {
+        if (!empty($response)) {
             $method->setResult($response);
         }
 

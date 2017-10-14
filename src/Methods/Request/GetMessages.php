@@ -84,5 +84,4 @@ class GetMessages extends RequestMethods
     {
         return [];
     }
-
 }

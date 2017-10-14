@@ -4,8 +4,9 @@ namespace leocata\M1\Methods\Callback;
 
 use leocata\M1\Abstracts\CallbackMethods;
 
-class MessageTyped extends CallbackMethods
+class Typing extends CallbackMethods
 {
     public $sessionid;
     public $userid;
+    public $typing;
 }

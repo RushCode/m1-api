@@ -4,8 +4,7 @@
   "keywords": ["M1","php","curl","api","client", "sdk","rest","restful"],
   "license": "MIT",
   "type": "library",
-  "minimum-stability": "alpha",
-  "version": "0.0.2",
+  "minimum-stability": "dev",
   "authors": [
     {
       "name": "Leo Cata",
@@ -20,7 +19,7 @@
     "php": "^7.0",
     "ext-pdo": "*",
     "ext-curl": "*",
-    "ratchet/pawl": "^0.2",
+    "ratchet/pawl": "^0.3",
     "psr/log": "^1.0",
     "react/http-client": "^0.5",
     "react/promise": "^2.5",
@@ -39,7 +38,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "leocata\\M1\\tests\\": "tests"
+      "leocata\\M1\\Tests\\": "tests"
     }
   }
 }

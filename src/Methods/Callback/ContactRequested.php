@@ -6,7 +6,6 @@ use leocata\M1\Abstracts\CallbackMethods;
 
 class ContactRequested extends CallbackMethods
 {
-
     public $name;
     public $userid;
     public $info;
