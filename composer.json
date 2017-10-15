@@ -4,7 +4,7 @@
   "keywords": ["M1","php","curl","api","client", "sdk","rest","restful"],
   "license": "MIT",
   "type": "library",
-  "minimum-stability": "dev",
+  "minimum-stability": "alpha",
   "authors": [
     {
       "name": "Leo Cata",
@@ -19,10 +19,7 @@
     "php": "^7.0",
     "ext-pdo": "*",
     "ext-curl": "*",
-    "ratchet/pawl": "^0.3",
     "psr/log": "^1.0",
-    "react/http-client": "^0.5",
-    "react/promise": "^2.5",
     "guzzlehttp/guzzle": "6.3.*"
   },
   "require-dev": {
