@@ -16,7 +16,7 @@ class MessageTest extends TestCase
 
     public function testMessage()
     {
-        $result = $callbackRequest = $this->apiConn->getApiCallbackMethod(
+        $result = $this->apiConn->getApiCallbackMethod(
             '{
                   "method": "message",
                   "params": {

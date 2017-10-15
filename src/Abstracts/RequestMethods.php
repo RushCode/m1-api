@@ -15,7 +15,7 @@ abstract class RequestMethods implements MethodDefinitions
      */
     final public function getResult()
     {
-        return $this->result;
+        return $this->result->result;
     }
 
     final public function setResult($data)
