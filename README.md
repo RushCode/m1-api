@@ -30,25 +30,25 @@ $connect->sendApiRequest($method);
 
 ### Session
 
-#### getSessions
-#### createSession
-#### updateSession
-#### closeSession
+- [x] getSessions
+- [ ] createSession
+- [ ] updateSession
+- [ ] closeSession
 
 ### Message
 
-#### getMessages
-#### sendMessage
-#### message
-#### deleteMessage
-#### messageDeleted
-#### messageDelivered
-#### delivery
-#### messageTyped
+- [x] getMessages
+- [x] sendMessage
+- [x] message
+- [ ] deleteMessage
+- [x] messageDeleted
+- [x] messageDelivered
+- [x] delivery
+- [x] messageTyped
 
 ### State
 
-#### Set state
+- [x] Set state
 
 ```
 $state = new \leocata\M1\Methods\Request\SetState();
@@ -58,18 +58,18 @@ $state->online();
 
 ### Contact
 
-#### findContact
-#### inviteContact
-#### contactRequested
-#### contactAccept
-#### contactAccepted
-#### contactReject
-#### contactRejected
-#### deleteContact
-#### updateContact
-#### getContacts
+- [ ] findContact
+- [ ] inviteContact
+- [x] contactRequested
+- [x] contactAccept
+- [ ] contactAccepted
+- [ ] contactReject
+- [ ] contactRejected
+- [ ] deleteContact
+- [ ] updateContact
+- [x] getContacts
 
 ### UserInfo
 
-#### getUserInfo
-#### setUserInfo
+- [x] getUserInfo
+- [ ] setUserInfo
