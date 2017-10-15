@@ -66,13 +66,12 @@ class Api
         if (!class_exists($class)) {
             throw new MethodNotFound(sprintf(
                 'The method "%s" not found, please correct',
-                $data->method
+                $class
             ));
         }
 
-        class_alias($class, $data->method);
         /** @var \leocata\M1\Abstracts\CallbackMethods $method */
-        $method = new $data->method();
+        $method = new $class;
         $method->import($data->params ?? new \stdClass());
         self::$callbacks += ['after' . $method->getMethodName() => $method];
 
