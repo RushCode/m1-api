@@ -4,7 +4,6 @@ namespace leocata\M1\Behavioral;
 
 abstract class CallbackMethods implements \SplSubject
 {
-
     private $observers;
 
     final public function __construct()

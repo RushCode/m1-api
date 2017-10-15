@@ -6,7 +6,6 @@ use leocata\M1\Abstracts\RequestMethods;
 
 class MessageTyped extends RequestMethods
 {
-
     public $sessionid;
     public $userid;
 

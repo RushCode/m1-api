@@ -7,7 +7,6 @@ use leocata\M1\Interfaces\MethodDefinitions;
 
 abstract class RequestMethods implements MethodDefinitions
 {
-
     private $result;
 
     /**
@@ -44,8 +43,9 @@ abstract class RequestMethods implements MethodDefinitions
     }
 
     /**
-     * @return array
      * @throws MissingMandatoryField
+     *
+     * @return array
      */
     final public function export()
     {

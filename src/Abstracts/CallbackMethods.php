@@ -5,7 +5,8 @@ namespace leocata\M1\Abstracts;
 abstract class CallbackMethods
 {
     /**
-     * Import data from json string
+     * Import data from json string.
+     *
      * @param $data \stdClass
      */
     final public function import(\stdClass $data)

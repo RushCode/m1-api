@@ -7,12 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 class SetStateTest extends TestCase
 {
-
     /**
      * @expectedException \leocata\M1\Exceptions\MissingMandatoryField
      * @expectedExceptionMessage state
      */
-
     public function testMissingMandatoryExportField()
     {
         $setState = new SetState();
