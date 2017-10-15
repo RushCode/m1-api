@@ -6,7 +6,6 @@ use leocata\M1\Abstracts\RequestMethods;
 
 class GetUserInfo extends RequestMethods
 {
-
     public $userid;
 
     public function getMandatoryFields(): array

@@ -46,7 +46,6 @@ class MessageTest extends TestCase
         $this->assertEquals(0, $result->time);
         $this->assertEquals(0, $result->lifetime);
         $this->assertEquals(0, $result->code);
-
     }
 
     /**

@@ -10,18 +10,16 @@ use leocata\M1\InternalFunctionality\DummyLogger;
 use Psr\Log\LoggerInterface;
 
 /**
- * Class Api
- * @package leocata\M1
+ * Class Api.
  */
 class Api
 {
-
     private static $callbacks = [];
     protected $logger;
     private $client;
 
     /**
-     * @param LoggerInterface $logger
+     * @param LoggerInterface         $logger
      * @param HttpClientAuthorization $auth
      */
     public function __construct(HttpClientAuthorization $auth, LoggerInterface $logger = null)
@@ -37,6 +35,7 @@ class Api
     /**
      * @param $name
      * @param \Closure $func
+     *
      * @throws \BadFunctionCallException
      */
     public static function doCallback($name, \Closure $func)
@@ -51,8 +50,10 @@ class Api
 
     /**
      * @param string $data
-     * @return bool|CallbackMethods
+     *
      * @throws MethodNotFound | MissingMandatoryField
+     *
+     * @return bool|CallbackMethods
      */
     public function getApiCallbackMethod(string $data)
     {
@@ -61,7 +62,7 @@ class Api
             return false;
         }
 
-        $class = '\leocata\M1\Methods\Callback\\' . ucfirst($data->method);
+        $class = '\leocata\M1\Methods\Callback\\'.ucfirst($data->method);
 
         if (!class_exists($class)) {
             throw new MethodNotFound(sprintf(
@@ -71,17 +72,18 @@ class Api
         }
 
         /** @var \leocata\M1\Abstracts\CallbackMethods $method */
-        $method = new $class;
+        $method = new $class();
         $method->import($data->params ?? new \stdClass());
-        self::$callbacks += ['after' . $method->getMethodName() => $method];
+        self::$callbacks += ['after'.$method->getMethodName() => $method];
 
         return $method;
     }
 
     /**
-     * Performs the request to the Api servers
+     * Performs the request to the Api servers.
      *
      * @param RequestMethods $method
+     *
      * @return RequestMethods
      */
     public function sendApiRequest(RequestMethods $method)

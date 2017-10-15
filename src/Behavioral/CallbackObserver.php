@@ -20,8 +20,6 @@ class CallbackObserver implements \SplObserver
                 }
             }
         }
-
-        return null;
     }
 
     public function update(\SplSubject $subject)
@@ -31,6 +29,6 @@ class CallbackObserver implements \SplObserver
 
     public function getCalledMethods()
     {
-        echo get_class($this->calledMethod) . ' : callback method registry' . "\n";
+        echo get_class($this->calledMethod).' : callback method registry'."\n";
     }
 }

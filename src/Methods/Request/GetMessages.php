@@ -6,14 +6,12 @@ use leocata\M1\Abstracts\RequestMethods;
 
 /**
  * Get list of messages
- * Class GetMessages
- * @package leocata\M1\Methods
+ * Class GetMessages.
  */
 class GetMessages extends RequestMethods
 {
-
     /**
-     * Query of sessions with activity within specified time period
+     * Query of sessions with activity within specified time period.
      */
     const PERIOD_ALL_TIME = 0;
     const PERIOD_LAST_MONTH = 1;
@@ -21,7 +19,7 @@ class GetMessages extends RequestMethods
     const PERIOD_LAST_DAY = 3;
 
     /**
-     * Message type
+     * Message type.
      */
     const MESSAGE_TEXT = 0;
     const MESSAGE_FILE_LINK = 2;
@@ -30,7 +28,7 @@ class GetMessages extends RequestMethods
     const MESSAGE_CONTACT_LINK = 10;
 
     /**
-     * Message status
+     * Message status.
      */
     const MESSAGE_STATUS_INCOMING_NEW = 1;
     const MESSAGE_STATUS_INCOMING_OUTCOMING = 2;
@@ -39,6 +37,7 @@ class GetMessages extends RequestMethods
 
     /**
      * Session identifier.
+     *
      * @var string
      */
     public $sessionid;
@@ -53,20 +52,22 @@ class GetMessages extends RequestMethods
      *  - 3 for the last week
      *  - 4 for the last twenty-four hours
      *
-     * @var integer
+     * @var int
      */
     public $period;
 
     /**
      * Timestamp with sampling (in milliseconds since 01.01.1970).
-     * @var integer
+     *
+     * @var int
      */
     public $since;
 
     /**
      * Number of entries in the sample. If "limit" is absent or equal to zero, entries
      * are chosen in timestamp’s ascending order(from " since" till now) Otherwise - from "since" in descending order.
-     * @var integer
+     *
+     * @var int
      */
     public $limit;
 

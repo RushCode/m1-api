@@ -22,6 +22,7 @@ class SendMessageTest extends TestCase
         parent::setUp();
         $this->apiConn = new MockApi(new HttpClientAuthorization('', ''));
     }
+
     /**
      * Cleans up the environment after running a test.
      */
@@ -30,11 +31,11 @@ class SendMessageTest extends TestCase
         $this->apiConn = null;
         parent::tearDown();
     }
+
     /**
      * @expectedException \leocata\M1\Exceptions\MissingMandatoryField
      * @expectedExceptionMessage sessionid
      */
-
     public function testMissingMandatoryExportField()
     {
         $sendMessage = new SendMessage();

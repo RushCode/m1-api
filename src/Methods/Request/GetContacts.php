@@ -6,7 +6,6 @@ use leocata\M1\Abstracts\RequestMethods;
 
 class GetContacts extends RequestMethods
 {
-
     const STATUS_UNAUTHORIZED = 0;
     const STATUS_AUTHORIZATION_REQUEST = 1;
     const STATUS_WAITING_FOR_AUTHORIZATION = 2;
@@ -31,7 +30,5 @@ class GetContacts extends RequestMethods
 
             return $userid;
         }
-
-        return null;
     }
 }

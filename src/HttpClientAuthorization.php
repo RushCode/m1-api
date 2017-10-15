@@ -3,8 +3,7 @@
 namespace leocata\M1;
 
 /**
- * Class HttpClientAuthorization
- * @package leocata\M1
+ * Class HttpClientAuthorization.
  */
 class HttpClientAuthorization
 {
@@ -20,6 +19,7 @@ class HttpClientAuthorization
 
     /**
      * HttpClientAuthorization constructor.
+     *
      * @param string $username
      * @param string $password
      */
@@ -30,13 +30,14 @@ class HttpClientAuthorization
     }
 
     /**
-     * The authorization header will be generated and added as a custom header
+     * The authorization header will be generated and added as a custom header.
+     *
      * @return array
      */
     public function getBasicAuth(): array
     {
         return [
-            'Authorization' => 'Basic ' . base64_encode($this->username . ':' . $this->password),
+            'Authorization' => 'Basic '.base64_encode($this->username.':'.$this->password),
         ];
     }
 }

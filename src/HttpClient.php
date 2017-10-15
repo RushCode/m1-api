@@ -6,13 +6,13 @@ use GuzzleHttp\Client;
 
 class HttpClient
 {
-
     private $client;
     private $auth;
     private $request;
 
     /**
      * HttpClient constructor.
+     *
      * @param HttpClientAuthorization $auth
      */
     public function __construct(HttpClientAuthorization $auth)
@@ -23,6 +23,7 @@ class HttpClient
 
     /**
      * @param $request
+     *
      * @return mixed|null
      */
     public function getResponseContent($request)
@@ -40,10 +41,10 @@ class HttpClient
     {
         return $this->client->request('POST', '/', [
             'headers' => [
-                    'Content-Type' => 'application/json'
+                    'Content-Type' => 'application/json',
                 ] +
                 $this->auth->getBasicAuth(),
-            'body' => $this->request
+            'body' => $this->request,
         ]);
     }
 }
