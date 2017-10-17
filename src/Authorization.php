@@ -3,9 +3,9 @@
 namespace leocata\M1;
 
 /**
- * Class HttpClientAuthorization.
+ * Class Authorization.
  */
-class HttpClientAuthorization
+class Authorization
 {
     /**
      * @var string
@@ -18,7 +18,7 @@ class HttpClientAuthorization
     private $password;
 
     /**
-     * HttpClientAuthorization constructor.
+     * Authorization constructor.
      *
      * @param string $username
      * @param string $password

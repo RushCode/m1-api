@@ -2,7 +2,7 @@
 
 namespace leocata\M1\Tests\Methods\Callback;
 
-use leocata\M1\HttpClientAuthorization;
+use leocata\M1\Authorization;
 use leocata\M1\Methods\Callback\Message;
 use leocata\M1\Tests\Mock\MockApi;
 use PHPUnit\Framework\TestCase;
@@ -54,7 +54,7 @@ class MessageTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->apiConn = new MockApi(new HttpClientAuthorization('', ''));
+        $this->apiConn = new MockApi(new Authorization('', ''));
     }
 
     /**

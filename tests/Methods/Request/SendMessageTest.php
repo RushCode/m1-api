@@ -2,7 +2,7 @@
 
 namespace leocata\M1\tests\Methods\Request;
 
-use leocata\M1\HttpClientAuthorization;
+use leocata\M1\Authorization;
 use leocata\M1\Methods\Request\SendMessage;
 use leocata\M1\Tests\Mock\MockApi;
 use PHPUnit\Framework\TestCase;
@@ -20,7 +20,7 @@ class SendMessageTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->apiConn = new MockApi(new HttpClientAuthorization('', ''));
+        $this->apiConn = new MockApi(new Authorization('', ''));
     }
 
     /**
