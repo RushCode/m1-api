@@ -2,7 +2,6 @@
 
 namespace leocata\M1\Tests\Methods\Callback;
 
-use leocata\M1\Authorization;
 use leocata\M1\Methods\Callback\Message;
 use leocata\M1\Tests\Mock\MockApi;
 use PHPUnit\Framework\TestCase;

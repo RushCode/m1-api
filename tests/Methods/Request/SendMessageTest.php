@@ -2,7 +2,6 @@
 
 namespace leocata\M1\tests\Methods\Request;
 
-use leocata\M1\Authorization;
 use leocata\M1\Methods\Request\SendMessage;
 use leocata\M1\Tests\Mock\MockApi;
 use PHPUnit\Framework\TestCase;
