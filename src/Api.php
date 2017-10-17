@@ -20,9 +20,9 @@ class Api
 
     /**
      * @param LoggerInterface         $logger
-     * @param HttpClientAuthorization $auth
+     * @param Authorization $auth
      */
-    public function __construct(HttpClientAuthorization $auth, LoggerInterface $logger = null)
+    public function __construct(Authorization $auth, LoggerInterface $logger = null)
     {
         if ($logger === null) {
             $logger = new DummyLogger();

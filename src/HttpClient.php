@@ -13,9 +13,9 @@ class HttpClient
     /**
      * HttpClient constructor.
      *
-     * @param HttpClientAuthorization $auth
+     * @param Authorization $auth
      */
-    public function __construct(HttpClientAuthorization $auth)
+    public function __construct(Authorization $auth)
     {
         $this->client = new Client(['base_uri' => 'https://m1online.net']);
         $this->auth = $auth;
