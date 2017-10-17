@@ -55,7 +55,7 @@ class Api
      *
      * @return bool|CallbackMethods
      */
-    public function getApiCallbackMethod(string $data)
+    public function getCallbackMethod(string $data)
     {
         $data = \GuzzleHttp\json_decode($data);
         if (empty($data->method)) {

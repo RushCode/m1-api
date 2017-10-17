@@ -12,9 +12,9 @@ class MockApi extends Api
         parent::doCallback($name, $func);
     }
 
-    public function getApiCallbackMethod(string $data)
+    public function getCallbackMethod(string $data)
     {
-        return parent::getApiCallbackMethod($data);
+        return parent::getCallbackMethod($data);
     }
 
     public function sendApiRequest(RequestMethods $method)
