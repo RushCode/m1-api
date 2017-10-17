@@ -23,7 +23,7 @@ Add the following to your composer.json:
 
 ```
 $connect = new Api();
-$connect->sendApiRequest($method);
+$connect->sendRequest($method);
 ```
 
 ## Api methods
@@ -31,6 +31,7 @@ $connect->sendApiRequest($method);
 ### Session
 
 - [x] getSessions
+- [x] getSessionList
 - [ ] createSession
 - [ ] updateSession
 - [ ] closeSession
@@ -53,7 +54,7 @@ $connect->sendApiRequest($method);
 ```
 $state = new \leocata\M1\Methods\Request\SetState();
 $state->online();
-(new Api())->sendApiRequest($state);
+(new Api())->sendRequest($state);
 ```
 
 ### Contact
@@ -62,7 +63,7 @@ $state->online();
 - [ ] inviteContact
 - [x] contactRequested
 - [x] contactAccept
-- [ ] contactAccepted
+- [x] contactAccepted
 - [ ] contactReject
 - [ ] contactRejected
 - [ ] deleteContact

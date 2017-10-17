@@ -86,7 +86,7 @@ class Api
      *
      * @return RequestMethods
      */
-    public function sendApiRequest(RequestMethods $method)
+    public function sendRequest(RequestMethods $method)
     {
         $response = $this->client->getResponseContent($method->getRequestString());
         if (!empty($response)) {
