@@ -16,9 +16,4 @@ class MockApi extends Api
     {
         return parent::getCallbackMethod($data);
     }
-
-    public function sendRequest(RequestMethods $method)
-    {
-        return parent::sendRequest($method);
-    }
 }

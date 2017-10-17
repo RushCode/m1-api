@@ -19,17 +19,14 @@ class Api
     private $client;
 
     /**
-     * @param LoggerInterface         $logger
-     * @param Authorization $auth
+     * @param LoggerInterface $logger
      */
-    public function __construct(Authorization $auth, LoggerInterface $logger = null)
+    public function __construct(LoggerInterface $logger = null)
     {
         if ($logger === null) {
             $logger = new DummyLogger();
         }
         $this->logger = $logger;
-
-        $this->client = new HttpClient($auth);
     }
 
     /**
@@ -83,11 +80,12 @@ class Api
      * Performs the request to the Api servers.
      *
      * @param RequestMethods $method
-     *
+     * @param Authorization $auth
      * @return RequestMethods
      */
-    public function sendRequest(RequestMethods $method)
+    public function sendRequest(RequestMethods $method, Authorization $auth)
     {
+        $this->client = new HttpClient($auth);
         $response = $this->client->getResponseContent($method->getRequestString());
         if (!empty($response)) {
             $method->setResult($response);

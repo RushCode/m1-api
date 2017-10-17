@@ -54,7 +54,7 @@ class MessageTest extends TestCase
     protected function setUp()
     {
         parent::setUp();
-        $this->apiConn = new MockApi(new Authorization('', ''));
+        $this->apiConn = new MockApi();
     }
 
     /**
