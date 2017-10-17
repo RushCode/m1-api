@@ -62,7 +62,8 @@ class Api
      * Performs the request to the Api servers.
      *
      * @param RequestMethods $method
-     * @param Authorization $auth
+     * @param Authorization  $auth
+     *
      * @return RequestMethods
      */
     public function sendRequest(RequestMethods $method, Authorization $auth)
