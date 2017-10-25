@@ -93,16 +93,17 @@ class Api
     /**
      * Quick send new message.
      *
+     * @param $sessionId
      * @param $destination
      * @param $code
      * @param $type
      * @param $content
-     *
      * @return RequestMethods
      */
-    public function sendMessage($destination, $code, $type, $content)
+    public function sendMessage($sessionId, $destination, $code, $type, $content)
     {
         $message = new SendMessage();
+        $message->sessionid = $sessionId;
         $message->dest = $destination;
         $message->code = $code;
         $message->code = $type;
