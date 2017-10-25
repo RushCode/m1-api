@@ -98,6 +98,7 @@ class Api
      * @param $code
      * @param $type
      * @param $content
+     *
      * @return RequestMethods
      */
     public function sendMessage($sessionId, $destination, $code, $type, $content)
@@ -106,8 +107,8 @@ class Api
         $message->sessionid = $sessionId;
         $message->dest = $destination;
         $message->code = $code;
-        $message->code = $type;
-        $message->code = $content;
+        $message->type = $type;
+        $message->content = $content;
 
         return $this->sendRequest($message);
     }
