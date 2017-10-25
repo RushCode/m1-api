@@ -130,7 +130,7 @@ class Api
     }
 
     /**
-     * Send message type indicator
+     * Send message type indicator.
      *
      * @param $sessionId
      * @param $userId
